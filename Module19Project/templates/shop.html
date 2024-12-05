@@ -1,0 +1,33 @@
+{% extends "menu.html" %}
+
+{% block pagename %}
+    <h1> {{ title }} </h1>
+{% endblock %}
+
+{% block menu %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h1> Товары </h1>
+    <ul>
+    {% for game in games %}
+        <li>
+            <p>Название: {{game.title}}</p>
+            <p>Цена: {{game.cost}}</p>
+            <p>Вес коробки: {{game.size}} кг.</p>
+            <p>Описание: {{game.description}}</p>
+            {% if game.age_limited %}
+                <p>Только 18+ </p>
+            {% else %}
+                <p> Для всех возрастов </p>
+            {% endif %}
+        </li>
+
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block footer %}
+    <h2>Подвал затопило</h2>
+{% endblock %}
